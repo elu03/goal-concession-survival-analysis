@@ -8,7 +8,7 @@ library(ggsurvfit)
 library(ggplot2)
 library(survminer)
 
-data <- read.xlsx("C:/Users/ELU EMEKA PELUMI/Desktop/CWC/CWC data.xlsx")
+data <- read.xlsx("C:/Users/Desktop/CWC/CWC data.xlsx")
 str(data)
 summary(data)
 table(data$Event)
@@ -58,7 +58,7 @@ km_fit <- survfit(Surv(data$Time.to.concede, Event) ~ 1, data = data)
 
 # Plot the survival curve
 ggsurvplot(km_fit, 
-           data = data,          # ✅ Pass the data explicitly here
+           data = data,          
            conf.int = TRUE,
            xlab = "Minutes Played", 
            ylab = "Survival Probability (Not Yet Conceded)",
@@ -90,4 +90,5 @@ print(ph_test)
 plot(ph_test)
 # Visual forest plot of hazard ratios
 ggforest(cox_model, data = data)
+
 
